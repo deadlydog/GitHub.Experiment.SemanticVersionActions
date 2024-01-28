@@ -4,3 +4,10 @@ This is just a simple repository that I'm using to test out various semantic ver
 
 The [.github/workflows](.github/workflows/) directory contains the workflows I've tested.
 Each workflow tests a single action, and is named after the action is uses for the test.
+
+## Requirements
+
+The following are things I'm looking for in the GitHub Actions being tested:
+
+- Supports semantic versioning.
+- Does not require committing version files (or other files) to the repository for it to work.
