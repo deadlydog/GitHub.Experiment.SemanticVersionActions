@@ -1,0 +1,25 @@
+# Uses action: https://github.com/marketplace/actions/version-generator
+name: VersionGenerator
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Calculate the version
+        id: version
+        uses: docker://lpenz/ghaction-version-gen:0.13.6
+
+      - name: Display the version
+        run: |
+          echo Version: ${{ steps.version.outputs.version_commit }}
