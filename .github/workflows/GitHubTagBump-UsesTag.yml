@@ -1,0 +1,38 @@
+# Uses action: https://github.com/marketplace/actions/github-tag-bump
+name: GitHubTagBump-UsesTag
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Calculate the version
+        id: dryRunVersion
+        uses: anothrNick/github-tag-action@1.67.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          DEFAULT_BUMP: patch
+          DRY_RUN: true
+
+      - name: Display the version
+        run: |
+          echo Version: ${{ steps.dryRunVersion.outputs.new_tag }}
+
+      # - name: Set the new version tag
+      #   id: version
+      #   uses: anothrNick/github-tag-action@1.67.0
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     WITH_V: true
+      #     DEFAULT_BUMP: patch
