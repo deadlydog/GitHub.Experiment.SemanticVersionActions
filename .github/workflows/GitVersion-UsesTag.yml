@@ -1,5 +1,5 @@
 # Uses action: https://github.com/marketplace/actions/git-version
-name: GitVersion
+name: GitVersion-UsesTag
 
 on:
   push:

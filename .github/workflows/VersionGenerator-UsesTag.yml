@@ -1,5 +1,5 @@
 # Uses action: https://github.com/marketplace/actions/version-generator
-name: VersionGenerator
+name: VersionGenerator-UsesTag
 
 on:
   push:
