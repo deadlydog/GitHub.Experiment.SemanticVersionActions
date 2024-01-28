@@ -1,0 +1,27 @@
+# Uses action: https://github.com/marketplace/actions/easy-versioning
+name: EasyVersioning
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set the version
+        uses: Langsdorf/easy-versioning@1.0.1
+        id: version
+        with:
+          input: '1.0.0'
+
+      - name: Display the version
+        run: |
+          echo Version: ${{ steps.version.outputs.version }}
