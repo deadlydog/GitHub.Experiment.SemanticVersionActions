@@ -6,6 +6,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+env:
+  isPushToDefaultBranch: ${{ github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,16 +23,20 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
           DEFAULT_BUMP: patch
+          # Set prerelease to true if not pushing to the default branch.
+          PRERELEASE: ${{ !env.isPushToDefaultBranch }}
           DRY_RUN: true
 
       - name: Display the version
         run: |
           echo Version: ${{ steps.dryRunVersion.outputs.new_tag }}
 
-      # - name: Set the new version tag
-      #   id: version
-      #   uses: anothrNick/github-tag-action@1.67.0
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     WITH_V: true
-      #     DEFAULT_BUMP: patch
+      - name: Set the new version tag
+        id: version
+        # Only run this step if we are doing a push (not a PR) to the default branch (e.g. main).
+        if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        uses: anothrNick/github-tag-action@1.67.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          DEFAULT_BUMP: patch
