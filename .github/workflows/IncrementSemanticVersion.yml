@@ -1,0 +1,27 @@
+name: Increment Semantic Version
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set the version
+        id: bump_version
+        uses: christian-draeger/increment-semantic-version@1.0.3
+        with:
+          current-version: '1.0.0'
+          version-fragment: 'bug'
+
+      - name: Display the version
+        run: |
+          echo Version: ${{ steps.bump_version.outputs.next-version }}
