@@ -1,4 +1,5 @@
-name: Increment Semantic Version
+# Uses action: https://github.com/marketplace/actions/increment-version
+name: Increment Version
 
 on:
   push:

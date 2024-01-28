@@ -1,3 +1,4 @@
+# Uses action: https://github.com/marketplace/actions/git-version
 name: GitVersion
 
 on:
