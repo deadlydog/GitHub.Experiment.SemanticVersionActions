@@ -1,5 +1,5 @@
 # Uses action: https://github.com/marketplace/actions/increment-version
-name: Increment Version
+name: IncrementVersion
 
 on:
   push:
@@ -16,8 +16,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set the version
-        id: bump_version
+      - name: Calculate the version
+        id: version
         uses: christian-draeger/increment-semantic-version@1.0.3
         with:
           current-version: '1.0.0'
@@ -25,4 +25,4 @@ jobs:
 
       - name: Display the version
         run: |
-          echo Version: ${{ steps.bump_version.outputs.next-version }}
+          echo Version: ${{ steps.version.outputs.next-version }}

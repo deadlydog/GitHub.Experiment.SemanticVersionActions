@@ -16,9 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set the version
-        uses: Langsdorf/easy-versioning@1.0.1
+      - name: Calculate the version
         id: version
+        uses: Langsdorf/easy-versioning@1.0.1
         with:
           input: '1.0.0'
 

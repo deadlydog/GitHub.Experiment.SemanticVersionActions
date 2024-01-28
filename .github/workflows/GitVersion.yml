@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set the version
+      - name: Calculate the version
         id: version
         uses: codacy/git-version@2.8.0
         with:
