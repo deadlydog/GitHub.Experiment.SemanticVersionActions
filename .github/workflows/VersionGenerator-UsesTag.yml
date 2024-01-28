@@ -1,4 +1,5 @@
 # Uses action: https://github.com/marketplace/actions/version-generator
+# Uses the most recent tag (not necessarily the highest version).
 name: VersionGenerator-UsesTag
 
 on:
