@@ -14,19 +14,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch the whole repo history.
 
       - name: Calculate the version
         id: version
         uses: codacy/git-version@2.8.0
         with:
-          # The name of the release branch
           release-branch: main # default is master
-          # The name of the dev branch
-          dev-branch: # default is dev
-          # The prefix to use in the version
-          prefix: # optional
-          # The paths to be used to calculate changes (comma-separated)
-          log-paths: # optional, default is ./
 
       - name: Display the version
         run: |
