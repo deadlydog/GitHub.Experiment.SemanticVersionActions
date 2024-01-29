@@ -56,15 +56,27 @@ Cons:
 
 Cons:
 
-- Does not support tags at all.
+- Does not support tags.
   You would have to read the tags yourself to find the latest version and then pass the version into the action.
   Because of this, it was not considered further.
 
 ## [Increment Version](https://github.com/marketplace/actions/increment-version)
 
+- Does not support tags.
+  You would have to read the tags yourself to find the latest version and then pass the version into the action.
+  Because of this, it was not considered further.
+
 ## [Version Bump](https://github.com/marketplace/actions/version-bump)
 
+- Does not support creating prerelease versions.
+  Version is always blank on non-main branch runs.
+  Because of this, it was not considered further.
+
 ## [Version Generator](https://github.com/marketplace/actions/version-generator)
+
+- Does not support creating prerelease versions.
+  Version is always blank on non-main branch runs.
+  Because of this, it was not considered further.
 
 ## Other information
 
