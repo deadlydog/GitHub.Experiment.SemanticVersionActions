@@ -13,3 +13,5 @@ The following are things I'm looking for in the GitHub Actions being tested:
 - Supports creating prerelease versions as well (e.g. `1.0.0-alpha.1`).
 - Does not require committing version files (or other files) to the repository for it to work.
 - Ideally, it also makes it easy to update the version manually.
+
+Dummy change 1
