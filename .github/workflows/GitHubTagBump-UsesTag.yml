@@ -26,7 +26,9 @@ jobs:
 
       - name: Display the version
         run: |
-          echo Version: ${{ steps.dryRunVersion.outputs.new_tag }}
+          echo new_tag: ${{ steps.dryRunVersion.outputs.new_tag }}
+          echo tag: ${{ steps.dryRunVersion.outputs.tag }}
+          echo part: ${{ steps.dryRunVersion.outputs.part }}
 
       - name: Set the new version tag
         id: version

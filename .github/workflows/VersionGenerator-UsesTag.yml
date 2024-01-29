@@ -20,4 +20,5 @@ jobs:
 
       - name: Display the version
         run: |
-          echo Version: ${{ steps.version.outputs.version_commit }}
+          echo version_commit: ${{ steps.version.outputs.version_commit }}
+          echo version_tagged: ${{ steps.version.outputs.version_tagged }}
