@@ -1,6 +1,7 @@
 # Uses action: https://github.com/marketplace/actions/git-version
 # Must include 'fetch-depth: 0' in checkout step to get all tags for it to determine the previous version.
 # Generates a nicely formatted prerelease version number: {MAJOR}.{MINOR}.{PATCH}-{sanitized-branch-name}.{commits-distance}.{hash}
+# When a prerelease verison is generated, it does not provide just the stable version number part to use in .NET assemblies that do not support prerelease versions.
 name: GitVersion-UsesTag
 
 on:

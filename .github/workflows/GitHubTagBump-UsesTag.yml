@@ -1,6 +1,7 @@
 # Uses action: https://github.com/marketplace/actions/github-tag-bump
 # Does not use a prerelease version when on another branch that does not yet have any commits.
 # Must provide a PRERELEASE_SUFFIX so that different branches do not end up with the same prerelease version.
+# When a prerelease verison is generated, it does not provide just the stable version number part to use in .NET assemblies that do not support prerelease versions.
 name: GitHubTagBump-UsesTag
 
 on:
