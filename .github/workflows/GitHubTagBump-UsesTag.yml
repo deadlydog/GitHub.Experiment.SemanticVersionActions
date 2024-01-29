@@ -1,4 +1,5 @@
 # Uses action: https://github.com/marketplace/actions/github-tag-bump
+# Does not use a prerelease version when on another branch that does not yet have any commits.
 name: GitHubTagBump-UsesTag
 
 on:
@@ -35,7 +36,7 @@ jobs:
       - name: Set the new version tag
         id: version
         # Only run this step if we are doing a push (not a PR) to the default branch (e.g. main).
-        if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        if: github.event_name == 'push' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         uses: anothrNick/github-tag-action@1.67.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
