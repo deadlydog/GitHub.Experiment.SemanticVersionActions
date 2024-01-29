@@ -1,5 +1,6 @@
 # Uses action: https://github.com/marketplace/actions/github-tag-bump
 # Does not use a prerelease version when on another branch that does not yet have any commits.
+# Must provide a PRERELEASE_SUFFIX so that different branches do not end up with the same prerelease version.
 name: GitHubTagBump-UsesTag
 
 on:
@@ -24,8 +25,7 @@ jobs:
           # Set prerelease to true if not pushing to the default branch.
           PRERELEASE: ${{ github.event_name != 'push' || github.ref != format('refs/heads/{0}', github.event.repository.default_branch) }}
           # Use the commit sha as the prerelease suffix so different branches have different prerelease versions.
-          # PRERELEASE_SUFFIX: ${{ github.sha }}
-          RELEASE_BRANCHES: main
+          PRERELEASE_SUFFIX: ${{ github.sha }}
           DRY_RUN: true
 
       - name: Display the version
