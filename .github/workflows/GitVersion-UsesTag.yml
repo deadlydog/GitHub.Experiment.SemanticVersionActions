@@ -1,5 +1,5 @@
 # Uses action: https://github.com/marketplace/actions/git-version
-# Requires also installing the libevent package to properly detect the previous version tag :(
+# Must include 'fetch-depth: 0' in checkout step to get all tags for it to determine the previous version.
 # Generates a nicely formatted prerelease version number: {MAJOR}.{MINOR}.{PATCH}-{sanitized-branch-name}.{commits-distance}.{hash}
 name: GitVersion-UsesTag
 
