@@ -11,6 +11,61 @@ The following are things I'm looking for in the GitHub Actions being tested:
 
 - Supports semantic versioning.
 - Supports creating prerelease versions as well (e.g. `1.0.0-alpha.1`).
+- Automatically retrieves the current version from the repository; do not have to search tags manually.
 - Does not require committing version files (or other files) to the repository for it to work.
 - Does not require installing other dependencies (in the repo or the workflow) to work.
 - Supports easily specifying a version number manually.
+
+## Results
+
+The winner of the actions tested was [Git Version](https://github.com/marketplace/actions/git-version).
+It is not perfect, but it suited my needs the best.
+
+In a close second was [GitHub Tag Bump](https://github.com/marketplace/actions/github-tag-bump).
+It mainly lost because Git Version's prerelease version format is nicer and always unique by default.
+
+### [Git Version](https://github.com/marketplace/actions/git-version)
+
+Pros:
+
+- Meets all of the requirements above.
+- Generates very nice unique prerelease versions: {MAJOR}.{MINOR}.{PATCH}-{sanitized-branch-name}.{commits-distance}.{hash}
+- Branches without any changes pushed to them yet will get a unique prerelease version.
+
+Cons:
+
+- Must include `fetch-depth: 0` in checkout step for it to be able to determine the latest version.
+  This will cause the checkout step to take longer.
+- Have to manually parse out the stable version from the prerelease version to use it to version .NET assemblies.
+
+### [GitHub Tag Bump](https://github.com/marketplace/actions/github-tag-bump)
+
+Pros:
+
+- Meets all of the requirements above.
+- Supports creating the new tag on the repo, so you don't have to find another action to do that.
+
+Cons:
+
+- Does not use a prerelease version when on another branch that does not yet have any commits.
+  If your CI/CD process attempts a deployment, it will conflict with the main branch's deployed version.
+- Different branches will all end up with the same prerelease version if you do not provide a `PRERELEASE_SUFFIX` parameter that uniquely identifies the branch (e.g. the commit SHA).
+- Have to manually parse out the stable version from the prerelease version to use it to version .NET assemblies.
+
+### [Easy Versioning](https://github.com/marketplace/actions/easy-versioning)
+
+Cons:
+
+- Does not support tags at all.
+  You would have to read the tags yourself to find the latest version and then pass the version into the action.
+  Because of this, it was not considered further.
+
+## [Increment Version](https://github.com/marketplace/actions/increment-version)
+
+## [Version Bump](https://github.com/marketplace/actions/version-bump)
+
+## [Version Generator](https://github.com/marketplace/actions/version-generator)
+
+## Other information
+
+[This blog post](https://medium.com/@AranT/auto-tagging-and-using-semantic-versioning-with-github-actions-e40188d12cf4) was helpful and led me to discover the GitHub Tag Bump action.
