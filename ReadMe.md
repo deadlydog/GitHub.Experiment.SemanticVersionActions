@@ -12,5 +12,3 @@ The following are things I'm looking for in the GitHub Actions being tested:
 - Supports semantic versioning.
 - Does not require committing version files (or other files) to the repository for it to work.
 - Ideally, it also makes it easy to update the version manually.
-
-Dummy commit for testing
