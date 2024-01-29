@@ -1,5 +1,6 @@
 # Uses action: https://github.com/marketplace/actions/version-generator
 # Uses the most recent tag (not necessarily the highest version).
+# Does not support creating prerelease versions. Version is always blank on non-main branch runs.
 name: VersionGenerator-UsesTag
 
 on:
@@ -20,4 +21,5 @@ jobs:
 
       - name: Display the version
         run: |
-          echo Version: ${{ steps.version.outputs.version_commit }}
+          echo version_commit: ${{ steps.version.outputs.version_commit }}
+          echo version_tagged: ${{ steps.version.outputs.version_tagged }}
