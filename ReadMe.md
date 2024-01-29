@@ -81,3 +81,5 @@ Cons:
 ## Other information
 
 [This blog post](https://medium.com/@AranT/auto-tagging-and-using-semantic-versioning-with-github-actions-e40188d12cf4) was helpful and led me to discover the GitHub Tag Bump action.
+
+Just testing
