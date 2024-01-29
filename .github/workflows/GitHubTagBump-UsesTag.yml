@@ -25,6 +25,7 @@ jobs:
           PRERELEASE: ${{ github.event_name != 'push' || github.ref != format('refs/heads/{0}', github.event.repository.default_branch) }}
           # Use the commit sha as the prerelease suffix so different branches have different prerelease versions.
           # PRERELEASE_SUFFIX: ${{ github.sha }}
+          RELEASE_BRANCHES: main
           DRY_RUN: true
 
       - name: Display the version
