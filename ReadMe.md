@@ -14,3 +14,5 @@ The following are things I'm looking for in the GitHub Actions being tested:
 - Does not require committing version files (or other files) to the repository for it to work.
 - Does not require installing other dependencies (in the repo or the workflow) to work.
 - Supports easily specifying a version number manually.
+
+Dummy change
