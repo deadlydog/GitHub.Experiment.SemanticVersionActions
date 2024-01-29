@@ -14,8 +14,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Fetch the whole repo history.
+        # with:
+        #   fetch-depth: 0  # Fetch the whole repo history.
 
       - name: Calculate the version
         id: version
