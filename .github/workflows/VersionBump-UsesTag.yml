@@ -1,5 +1,6 @@
 # Uses action: https://github.com/marketplace/actions/version-bump
-name: VersionBump
+# Does not support creating prerelease versions :(
+name: VersionBump-UsesTag
 
 on:
   push:
@@ -15,9 +16,7 @@ jobs:
 
       - name: Calculate the version
         id: version
-        uses: Langsdorf/easy-versioning@1.0.1
-        with:
-          input: '1.0.0'
+        uses: opspresso/action-version@v0.2.8
 
       - name: Display the version
         run: |
