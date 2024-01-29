@@ -1,5 +1,5 @@
 # Uses action: https://github.com/marketplace/actions/version-bump
-# Does not support creating prerelease versions :(
+# Does not support creating prerelease versions. Version is always blank on non-main branch runs.
 name: VersionBump-UsesTag
 
 on:
