@@ -60,8 +60,6 @@ Cons:
 
 ### [Easy Versioning](https://github.com/marketplace/actions/easy-versioning)
 
-Cons:
-
 - Does not support tags.
   You would have to read the tags yourself to find the latest version and then pass the version into the action.
   Because of this, it was not considered further.
