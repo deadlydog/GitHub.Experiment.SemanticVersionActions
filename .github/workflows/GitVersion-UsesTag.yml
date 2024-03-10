@@ -30,9 +30,9 @@ jobs:
           echo Version: ${{ steps.version.outputs.version }}
           echo Previous version: ${{ steps.version.outputs.previous-version }}
 
-      - name: Set the new version tag
-        # Only run this step if we are doing a push (not a PR) to the default branch (e.g. main).
-        if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
-        run: |
-          git tag ${{ steps.version.outputs.version }}
-          git push origin ${{ steps.version.outputs.version }}
+      # - name: Set the new version tag
+      #   # Only run this step if we are doing a push (not a PR) to the default branch (e.g. main).
+      #   if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+      #   run: |
+      #     git tag ${{ steps.version.outputs.version }}
+      #     git push origin ${{ steps.version.outputs.version }}
