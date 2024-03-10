@@ -1,5 +1,6 @@
 # Uses action: https://github.com/marketplace/actions/gittools
 # Must include 'fetch-depth: 0' in checkout step to get all tags for it to determine the previous version.
+# Does not use the branch name in PRs; uses 'PullRequest<PR#>' instead. e.g. PullRequest0009.
 name: GitTools-UsesTag
 
 on:

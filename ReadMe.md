@@ -28,6 +28,19 @@ In a close second was [GitHub Tag Bump](https://github.com/marketplace/actions/g
 It mainly lost because Git Version's prerelease version format is nicer and always unique by default.
 [View the workflow here](.github/workflows/GitHubTagBump-UsesTag.yml).
 
+## [GitTools](https://github.com/marketplace/actions/gittools)
+
+Pros:
+
+- Meets all of the requirements above.
+- Has many different outputs for the version, such as `Major`, `Minor`, `Patch`, `MajorMinorPathc`, `SemVer`, `AssemblySemVer`, `Sha`, `ShortSha`, `NuGetVersion`, `CommitsSinceVersionSource`, `CommitDate`, and more.
+
+Cons:
+
+- Must include `fetch-depth: 0` in checkout step for it to be able to determine the latest version.
+  This will cause the checkout step to take longer, which may be problematic for very large repos.
+- Must include an additional setup step to install GitVersion.
+
 ### [Git Version](https://github.com/marketplace/actions/git-version)
 
 Pros:
