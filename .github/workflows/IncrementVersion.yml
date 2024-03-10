@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Calculate the version
+      - name: Determine the version
         id: version
         uses: christian-draeger/increment-semantic-version@1.0.3
         with:

@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Calculate the version
+      - name: Determine the version
         id: version
         uses: anothrNick/github-tag-action@1.67.0
         env:

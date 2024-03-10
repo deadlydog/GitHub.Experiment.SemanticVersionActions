@@ -18,7 +18,7 @@ jobs:
         with:
           fetch-depth: 0  # Fetch the whole repo history.
 
-      - name: Calculate the version
+      - name: Determine the version
         id: version
         uses: codacy/git-version@2.8.0
         with:
