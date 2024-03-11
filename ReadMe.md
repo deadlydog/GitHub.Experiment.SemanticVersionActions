@@ -20,19 +20,18 @@ The following are things I'm looking for in the GitHub Actions being tested:
 
 Only 3 of the actions tested met all of the requirements above.
 
-I personally like [GitTools](https://github.com/marketplace/actions/gittools) the best, simply because it provides the most outputs for the version number, meaning you do not have to do any extra work to parse them out.
+1st place: I personally like [GitTools](https://github.com/marketplace/actions/gittools) the best, simply because it provides the most outputs for the version number, meaning you do not have to do any extra work to parse them out.
 If you do not like one of the default version number formats, you can create your own using the provided outputs.
-[View the workflow here](.github/workflows/GitTools-UsesTag.yml).
 
-My next favourite is [Git Version](https://github.com/marketplace/actions/git-version).
+2nd place: My next favourite is [Git Version](https://github.com/marketplace/actions/git-version).
 I actually prefer it's version number format best, but if you want to use the 'v' prefix or use it to tag .NET assemblies, you need to do extra work to parse out just the version number parts you need.
-[View the workflow here](.github/workflows/GitVersion-UsesTag.yml).
 
-My third pick is [GitHub Tag Bump](https://github.com/marketplace/actions/github-tag-bump).
+3rd place: My third pick is [GitHub Tag Bump](https://github.com/marketplace/actions/github-tag-bump).
 It mainly lost because Git Version's prerelease version format is nicer and always unique by default.
-[View the workflow here](.github/workflows/GitHubTagBump-UsesTag.yml).
 
 ### [GitTools](https://github.com/marketplace/actions/gittools)
+
+[View the workflow](.github/workflows/GitTools-UsesTag.yml) and the [workflow runs](https://github.com/deadlydog/GitHub.Experiment.SemanticVersionActions/actions/workflows/GitTools-UsesTag.yml).
 
 Sample `SemVer` output (there are a few other outputs as well):
 
@@ -55,6 +54,8 @@ Cons:
 
 ### [Git Version](https://github.com/marketplace/actions/git-version)
 
+[View the workflow](.github/workflows/GitVersion-UsesTag.yml) and the [workflow runs](https://github.com/deadlydog/GitHub.Experiment.SemanticVersionActions/actions/workflows/GitVersion-UsesTag.yml).
+
 Sample output (with optional 'v' prefix added):
 
 - PR: `v1.1.15-v11144gfc3c6c9.4.fc3c6c9`
@@ -75,6 +76,8 @@ Cons:
 - Have to manually parse out the stable version from the prerelease version to use it to version .NET assemblies.
 
 ### [GitHub Tag Bump](https://github.com/marketplace/actions/github-tag-bump)
+
+[View the workflow](.github/workflows/GitHubTagBump-UsesTag.yml) and the [workflow runs](https://github.com/deadlydog/GitHub.Experiment.SemanticVersionActions/actions/workflows/GitHubTagBump-UsesTag.yml).
 
 Sample output (with optional 'v' prefix added):
 
@@ -97,11 +100,15 @@ Cons:
 
 ### [Easy Versioning](https://github.com/marketplace/actions/easy-versioning)
 
+[View the workflow](.github/workflows/EasyVersioning.yml) and the [workflow runs](https://github.com/deadlydog/GitHub.Experiment.SemanticVersionActions/actions/workflows/EasyVersioning.yml).
+
 - Does not support tags.
   You would have to read the tags yourself to find the latest version and then pass the version into the action.
   Because of this, it was not considered further.
 
 ### [Increment Version](https://github.com/marketplace/actions/increment-version)
+
+[View the workflow](.github/workflows/IncrementVersion.yml) and the [workflow runs](https://github.com/deadlydog/GitHub.Experiment.SemanticVersionActions/actions/workflows/IncrementVersion.yml).
 
 - Does not support tags.
   You would have to read the tags yourself to find the latest version and then pass the version into the action.
@@ -109,11 +116,15 @@ Cons:
 
 ### [Version Bump](https://github.com/marketplace/actions/version-bump)
 
+[View the workflow](.github/workflows/VersionBump-UsesTag.yml) and the [workflow runs](https://github.com/deadlydog/GitHub.Experiment.SemanticVersionActions/actions/workflows/VersionBump-UsesTag.yml).
+
 - Does not support creating prerelease versions.
   Version is always blank on non-main branch runs.
   Because of this, it was not considered further.
 
 ### [Version Generator](https://github.com/marketplace/actions/version-generator)
+
+[View the workflow](.github/workflows/VersionGenerator-UsesTag.yml) and the [workflow runs](https://github.com/deadlydog/GitHub.Experiment.SemanticVersionActions/actions/workflows/VersionGenerator-UsesTag.yml).
 
 - Does not support creating prerelease versions.
   Version is always blank on non-main branch runs.
