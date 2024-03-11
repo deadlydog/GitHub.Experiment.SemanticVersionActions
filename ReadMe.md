@@ -18,22 +18,34 @@ The following are things I'm looking for in the GitHub Actions being tested:
 
 ## Results
 
-Only 2 of the actions tested met all of the requirements above.
+Only 3 of the actions tested met all of the requirements above.
 
-The winner of the actions tested was [Git Version](https://github.com/marketplace/actions/git-version).
-It is not perfect, but it suited my needs the best.
+I personally like [GitTools](https://github.com/marketplace/actions/gittools) the best, simply because it provides the most outputs for the version number, meaning you do not have to do any extra work to parse them out.
+If you do not like one of the default version number formats, you can create your own using the provided outputs.
+[View the workflow here](.github/workflows/GitTools-UsesTag.yml).
+
+My next favourite is [Git Version](https://github.com/marketplace/actions/git-version).
+I actually prefer it's version number format best, but if you want to use the 'v' prefix or use it to tag .NET assemblies, you need to do extra work to parse out just the version number parts you need.
 [View the workflow here](.github/workflows/GitVersion-UsesTag.yml).
 
-In a close second was [GitHub Tag Bump](https://github.com/marketplace/actions/github-tag-bump).
+My third pick is [GitHub Tag Bump](https://github.com/marketplace/actions/github-tag-bump).
 It mainly lost because Git Version's prerelease version format is nicer and always unique by default.
 [View the workflow here](.github/workflows/GitHubTagBump-UsesTag.yml).
 
 ## [GitTools](https://github.com/marketplace/actions/gittools)
 
+Sample `SemVer` output (there are a few other outputs as well):
+
+- PR: `1.1.15-PullRequest0009.4`
+- Branch: `1.1.15-TestBranch.1`
+- Main: `1.1.15`
+
 Pros:
 
 - Meets all of the requirements above.
-- Has many different outputs for the version, such as `Major`, `Minor`, `Patch`, `MajorMinorPathc`, `SemVer`, `AssemblySemVer`, `Sha`, `ShortSha`, `NuGetVersion`, `CommitsSinceVersionSource`, `CommitDate`, and more.
+- Has many different outputs for the version, such as `Major`, `Minor`, `Patch`, `PreReleaseTag`, `PreReleaseTagWithDash`, `MajorMinorPatch`, `SemVer`, `AssemblySemVer`, `Sha`, `ShortSha`, `NuGetVersion`, `CommitsSinceVersionSource`, `CommitDate`, and more.
+- Branches without any changes pushed to them yet will get a unique prerelease version.
+- Detects tags that start with `v`, even though it does not output them for any version number formats.
 
 Cons:
 
@@ -42,6 +54,12 @@ Cons:
 - Must include an additional setup step to install GitVersion.
 
 ### [Git Version](https://github.com/marketplace/actions/git-version)
+
+Sample output (with optional 'v' prefix added):
+
+- PR: `v1.1.15-v11144gfc3c6c9.4.fc3c6c9`
+- Branch: `v1.1.15-testbranch.5.7856217`
+- Main: `v1.1.15`
 
 Pros:
 
@@ -57,6 +75,12 @@ Cons:
 - Have to manually parse out the stable version from the prerelease version to use it to version .NET assemblies.
 
 ### [GitHub Tag Bump](https://github.com/marketplace/actions/github-tag-bump)
+
+Sample output (with optional 'v' prefix added):
+
+- PR: `v1.1.15-fc3c6c9f72fe8fa5d827b676eb6d976782816d21.0`
+- Branch: `v1.1.15-785621799c5a4450f8159bb87f20d06493d6beb0.0`
+- Main: `v1.1.15`
 
 Pros:
 
