@@ -32,7 +32,7 @@ My third pick is [GitHub Tag Bump](https://github.com/marketplace/actions/github
 It mainly lost because Git Version's prerelease version format is nicer and always unique by default.
 [View the workflow here](.github/workflows/GitHubTagBump-UsesTag.yml).
 
-## [GitTools](https://github.com/marketplace/actions/gittools)
+### [GitTools](https://github.com/marketplace/actions/gittools)
 
 Sample `SemVer` output (there are a few other outputs as well):
 
